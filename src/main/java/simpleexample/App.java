@@ -8,7 +8,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        Injector injector = Guice.createInjector(new GuiceModule("somevalue", "https://server.address"));
+        Injector injector = Guice.createInjector(new GuiceModule("somevalue", "https://server.address", "8080"));
 
         // Thing can be instantiated like this
         // because it's constructor is annotated with @Inject
@@ -25,5 +25,8 @@ public class App {
 
         String fooServerAddress = thing.getFooServerAddress();
         System.out.println(fooServerAddress);
+
+        String port = thing.getPort();
+        System.out.println(port);
     }
 }

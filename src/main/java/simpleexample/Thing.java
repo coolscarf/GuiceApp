@@ -1,6 +1,7 @@
 package simpleexample;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 public class Thing {
 
@@ -10,6 +11,11 @@ public class Thing {
     private final String fooServerAddress;
 
     @Inject
+    @Named("MyNamedPort")
+    private String port;
+
+    @Inject
+
     public Thing(Config config, ServiceOne serviceOne, SetterInjectionExample setterInjectionExample, @FooServerAddress String fooServerAddress) {
         this.config = config;
         this.serviceOne = serviceOne;
@@ -31,5 +37,9 @@ public class Thing {
 
     public String getFooServerAddress() {
         return fooServerAddress;
+    }
+
+    public String getPort() {
+        return port;
     }
 }
