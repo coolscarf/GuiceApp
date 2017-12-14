@@ -15,6 +15,8 @@ public class GuiceModule extends AbstractModule {
 
     protected void configure() {
         bind(Config.class).toInstance(new Config(this.configItem));
+
+        //with this annotation - any class in the graph can use this
         bindConstant().annotatedWith(FooServerAddress.class).to(fooServerAddress);
     }
 }
